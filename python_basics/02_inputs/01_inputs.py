@@ -10,4 +10,4 @@ print("Hello " + player_name)
 # wypisuje:
 
 user_age = int(input("What is your age ? "))
-print(user_age)
+print(f"Next year you will be {user_age} years old.")
