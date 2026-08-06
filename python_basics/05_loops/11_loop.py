@@ -10,12 +10,11 @@
 user_password = input(
     "Your password must contain one upper and lower case and one number "
 )
-has_required_length = False
+has_required_length = len(user_password) >= 8
 has_number = False
 has_uppercase = False
 has_lowercase = False
-if len(user_password) >= 8:
-    has_required_length = True
+
 for char in user_password:
     if char.isdigit():
         has_number = True

@@ -14,4 +14,4 @@
 i = 0
 for worker in range(15):
     i += 1
-    print(f"EMP-{i:02}")
+    print(f"EMP-{i:02gi}")
