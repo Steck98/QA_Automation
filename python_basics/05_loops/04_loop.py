@@ -46,28 +46,49 @@
 
 # i zakończ program.
 
-account_balance = 2500
 
-user_choice = 0
-while user_choice != 4:
-    user_choice = int(
+def run_bank():
+    account_balance = 2500
+    user_choice = 0
+    while user_choice != 4:
+        user_choice = show_menu()
+
+        if user_choice == 1:
+            check_balance(account_balance)
+        elif user_choice == 2:
+            account_balance = deposit_money(account_balance)
+        elif user_choice == 3:
+            account_balance = withdraw_money(account_balance)
+        elif user_choice == 4:
+            print("Thank you for using our bank.")
+        else:
+            print("Invalid option.")
+
+
+def show_menu():
+    return int(
         input("1. Check balance \n2. Deposit money \n3. Withdraw money \n4. Exit")
     )
-    if user_choice == 1:
-        print(f"Current balance: {account_balance}")
-    elif user_choice == 2:
-        deposit_amount = int(input("How much would you like to deposit? "))
-        if deposit_amount > 0:
-            account_balance += deposit_amount
-        else:
-            print("Invalid amount.")
-    elif user_choice == 3:
-        withdrawal_amount = int(input("How much would you like to withdraw? "))
-        if withdrawal_amount > 0 and withdrawal_amount <= account_balance:
-            account_balance -= withdrawal_amount
-        else:
-            print("Invalid amount.")
-    elif user_choice == 4:
-        print("Thank you for using our bank.")
-    else:
-        print("Invalid option.")
+
+
+def check_balance(account_balance):
+    print(f"Current balance: {account_balance}")
+
+
+def deposit_money(account_balance):
+    deposit_amount = int(input("How much would you like to deposit? "))
+    if deposit_amount > 0:
+        return account_balance + deposit_amount
+    print("Invalid amount.")
+    return account_balance
+
+
+def withdraw_money(account_balance):
+    withdrawal_amount = int(input("How much would you like to withdraw? "))
+    if withdrawal_amount > 0 and withdrawal_amount <= account_balance:
+        return account_balance - withdrawal_amount
+    print("Invalid amount.")
+    return account_balance
+
+
+run_bank()
