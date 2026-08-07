@@ -1,0 +1,6 @@
+Python
+Git
+QA
+Automation
+Selenium
+Pytest
