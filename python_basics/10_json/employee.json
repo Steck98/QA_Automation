@@ -1,0 +1,12 @@
+{
+    "name": "Adam",
+    "position": "QA",
+    "salary": 6500,
+    "city": "Gdynia",
+    "experience": 3,
+    "skills": [
+        "Python",
+        "SQL",
+        "Selenium"
+    ]
+}
