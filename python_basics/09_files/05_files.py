@@ -6,6 +6,10 @@ def run_order_list():
     orders = load_orders()
     display_order(orders)
     search_order_status(orders)
+    user_update_order = input("Would you like to update an order ? yes/no")
+    if user_update_order == "yes":
+        update_order(orders)
+        orders = load_orders()
     user_new_order = input("Would you like to place a new order ? yes/no")
     if user_new_order == "yes":
         new_order()
@@ -50,8 +54,20 @@ def delete_order(orders):
     delete_user_order = input(
         "What are the 4 last digits of the order that would you like to delete? "
     )
+    orders.remove(f"ORD-{delete_user_order}")
     with open("python_basics/09_files/orders.txt", "w") as file:
-        orders.remove(f"ORD-{delete_user_order}")
+        for order in orders:
+            file.write(f"{order}\n")
+
+
+def update_order(orders):
+    user_select_order = input("What order would you like to update? ")
+    for index, order in enumerate(orders):
+        if order == f"ORD-{user_select_order}":
+            new_user_order = input("What is the new order? ")
+            print(index, order)
+            orders[index] = f"ORD-{new_user_order}"
+    with open("python_basics/09_files/orders.txt", "w") as file:
         for order in orders:
             file.write(f"{order}\n")
 
