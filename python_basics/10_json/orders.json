@@ -1,0 +1,26 @@
+[
+    {
+        "id": "ORD-1001",
+        "customer": "Adam",
+        "status": "pending",
+        "total": 249.99
+    },
+    {
+        "id": "ORD-1002",
+        "customer": "Anna",
+        "status": "shipped",
+        "total": 599.5
+    },
+    {
+        "id": "ORD-1003",
+        "customer": "Piotr",
+        "status": "Maybe Delivered",
+        "total": 129.99
+    },
+    {
+        "id": "ORD-1004",
+        "customer": "Rafal",
+        "status": "Delivered",
+        "total": "300"
+    }
+]

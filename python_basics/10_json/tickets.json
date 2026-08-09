@@ -1,0 +1,44 @@
+[
+    {
+        "id": "TCK-1001",
+        "status": "open",
+        "priority": "high",
+        "customer": {
+            "name": "Adam",
+            "email": "adam@test.com",
+            "company": {
+                "name": "Tech Solutions",
+                "city": "Gdynia"
+            }
+        },
+        "messages": [
+            {
+                "author": "customer",
+                "content": "I cannot log into my account."
+            },
+            {
+                "author": "support",
+                "content": "We are investigating the issue."
+            }
+        ]
+    },
+    {
+        "id": "TCK-1002",
+        "status": "closed",
+        "priority": "medium",
+        "customer": {
+            "name": "Anna",
+            "email": "anna@test.com",
+            "company": {
+                "name": "Data Systems",
+                "city": "Warszawa"
+            }
+        },
+        "messages": [
+            {
+                "author": "customer",
+                "content": "My invoice contains incorrect data."
+            }
+        ]
+    }
+]
