@@ -1,0 +1,15 @@
+{
+    "keyboard": {
+        "name": "Mechanical Keyboard",
+        "price": 249.99
+    },
+    "mouse": {
+        "name": "Wireless Mouse",
+        "price": 99.99
+    },
+    "monitor": {
+        "name": "27 inch Monitor",
+        "price": 899.99,
+        "sizes": [24, 27, 32]
+    }
+}
