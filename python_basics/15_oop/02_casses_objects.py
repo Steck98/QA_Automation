@@ -106,6 +106,12 @@ class TestCase:
     def is_slow(self, limit):
         return self.duration > limit
 
+    def __str__(self):
+        return f"{self.test_name}"
+
+    def __repr__(self):
+        return f"{self.test_name},{self.duration}.{self.status}"
+
 
 login_test = TestCase(test_name="login_test", duration=1.2, status="passed")
 payment_test = TestCase(test_name="payment_test", duration=5.8, status="failed")
@@ -120,3 +126,26 @@ for test in tests:
 failed_tests = [test for test in tests if test.is_failed()]
 for test in failed_tests:
     print(test.test_name)
+
+
+class ApiTest(TestCase):
+    def __init__(self, test_name, duration, endpoint, status="blocked"):
+        super().__init__(test_name, duration, status)
+        self.endpoint = endpoint
+
+    def display_result(self):
+        print(
+            f"API Test: {self.test_name} | "
+            f"Status: {self.status} | "
+            f"Duration: {self.duration}s | "
+            f"Endpoint: {self.endpoint}"
+        )
+
+
+api_test = ApiTest(
+    test_name="get_users_test", duration=2.5, status="failed", endpoint="/users"
+)
+
+login_test.display_result()
+
+api_test.display_result()
