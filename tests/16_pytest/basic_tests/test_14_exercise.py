@@ -56,23 +56,3 @@ def test_empty_list():
 )
 def test_mixed_numbers(numbers, expect):
     assert get_even_numbers(numbers) == expect
-
-
-# @pytest.mark.parametrize("number", [2, 4, 6, 8, 12, 22, 32, 412, 122])
-# def test_even_numbers(number):
-#     assert get_even_numbers(number)
-
-
-# @pytest.mark.parametrize("number", [1, 3, 5, 7, 9])
-# def test_odd_numbers(number):
-#     assert number % 2 == 1
-
-
-# @pytest.mark.parametrize("number", [])
-# def test_empty_numbers(number):
-#     assert number % 2 == 1
-
-
-# @pytest.mark.parametrize("number", [2, 4, 6, 8, 12, 22, 11, 13, 15, 91, 32, 412, 122])
-# def test_mixed_numbers(number):
-#     assert number % 2 == 0
