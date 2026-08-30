@@ -101,7 +101,10 @@ class User:
 
     @email.setter
     def email(self, new_email):
-        self.__email = new_email
+        if "." in new_email and "@" in new_email:
+            self.__email = new_email
+        else:
+            raise ValueError("Email must contain @ and .")
 
 
 @pytest.fixture
@@ -146,3 +149,89 @@ def test_positive_user_age(user_fixture, user_age):
 def test_invalid_user_age(user_fixture, user_age):
     with pytest.raises(ValueError):
         user_fixture.age = user_age
+
+
+# ============================================
+# ĆWICZENIE 13C — Testowanie email.setter
+# ============================================
+#
+# 1. Wykorzystaj istniejący fixture user_fixture.
+#
+# 2. Przygotuj kilka różnych adresów email.
+#
+# 3. Użyj @pytest.mark.parametrize.
+#
+# 4. Przekaż email jako parametr do testu.
+#
+# 5. Ustaw nowy email za pomocą settera.
+#
+# 6. Sprawdź za pomocą assert, czy email
+#    został prawidłowo zapisany.
+#
+# ============================================
+
+
+@pytest.mark.parametrize(
+    "email",
+    ("raf@Gmail.com", "Tom@wp.pl", "scoobiedoo@gmail.us", "qa_fronted@yahoo.it"),
+)
+def test_valid_user_email(user_fixture, email):
+    user_fixture.email = email
+    assert user_fixture.email == email
+
+
+# ============================================
+# ĆWICZENIE 13D — Walidacja emaila
+# ============================================
+#
+# CEL:
+# Rozbuduj setter email w klasie User tak,
+# aby odrzucał niepoprawne adresy email.
+#
+# CZĘŚĆ 1 — MODEL
+#
+# 1. Zmodyfikuj email.setter.
+#
+# 2. Email musi zawierać znak "@".
+#
+# 3. Email musi zawierać znak ".".
+#
+# 4. Jeżeli email jest poprawny:
+#    - zapisz go do prywatnego atrybutu.
+#
+# 5. Jeżeli email jest niepoprawny:
+#    - nie zapisuj go,
+#    - rzuć ValueError.
+#
+#
+# CZĘŚĆ 2 — TESTY
+#
+# 6. Napisz test pozytywny wykorzystujący
+#    @pytest.mark.parametrize.
+#
+# 7. Przetestuj kilka poprawnych emaili.
+#
+# 8. Ustaw email za pomocą settera.
+#
+# 9. Sprawdź assert, czy email został zapisany.
+#
+# 10. Napisz osobny test negatywny wykorzystujący
+#     @pytest.mark.parametrize.
+#
+# 11. Przetestuj kilka niepoprawnych emaili.
+#
+# 12. Użyj pytest.raises(ValueError).
+#
+# 13. Sprawdź, czy dla każdego niepoprawnego
+#     emaila setter rzuca ValueError.
+#
+# ============================================
+
+
+@pytest.mark.parametrize(
+    "email",
+    ("rafGmail.com", "Tom@wppl", "scoobiedoogmailus", "Skatush Tash tash"),
+)
+def test_invalid_user_email(user_fixture, email):
+    with pytest.raises(ValueError):
+        user_fixture.email = email
